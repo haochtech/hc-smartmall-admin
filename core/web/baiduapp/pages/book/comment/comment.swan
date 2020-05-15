@@ -1,0 +1,26 @@
+<view class="goods-comment" s-if="{{__is_comment}}">
+    <view class="goods-comment-item flex-col" s-for="{{comment}}" s-for-index="ckey" s-key="{{item.id}}">
+        <view class="goods-comment-user flex-grow-0 flex-row flex-y-center">
+            <view class="comment-user-pic flex-grow-0">
+                <image src="{{item.avatar_url}}"></image>
+            </view>
+            <view class="comment-user-name flex-grow-0">
+                    {{item.nickname}}
+                </view>
+        </view>
+        <view class="goods-comment-conent flex-grow-1">
+                {{item.content}}
+            </view>
+        <view class="goods-comment-ginfo">
+                    {{item.addtime}}
+                    <block s-for="{{item.attr}}" s-for-item="attr" s-key="{{item.id}}">
+                        {{attr.attr_group_name}}:{{attr.attr_name}}
+                    </block>
+        </view>
+        <view class="goods-comment-piclist">
+            <view class="comment-pic-shell" s-for="{{item.pic_list}}" s-for-item="pic" s-key="{{item.id}}">
+                <image bindtap="bigToImage" data-index="{{ckey}}" data-url="{{pic}}" src="{{pic}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

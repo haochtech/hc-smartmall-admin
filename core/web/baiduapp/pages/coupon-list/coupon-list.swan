@@ -1,0 +1,48 @@
+<view class="info">
+	<view class="info-list" style="width:100%;">
+
+		<view class="info-one" s-for="{{coupon_list}}" s-for-item="coupon" s-key="id">
+			<block s-if="{{coupon.discount_type==2}}">
+
+
+
+				<image src="{{__wxapp_img.coupon.enabled.url}}" s-if="{{coupon.is_receive==0}}"></image>
+				<image src="{{__wxapp_img.coupon.disabled.url}}" s-if="{{coupon.is_receive==1}}"></image>
+				<view class="info-content flex-row flex-x-center flex-y-center">
+					<view class="flex-grow-0">
+						<view class="flex-row flex-y-bottom">
+							<view class="flex-grow-0">￥</view>
+							<view class="flex-grow-1" style="font-size:23pt;">{{coupon.sub_price}}</view>
+						</view>
+					</view>
+					<view class="flex-grow-1" style="font-size:11pt">
+						<view style="margin-left:16rpx;">
+							<view style="margin-bottom:4rpx;">优惠券</view>
+							<view>满{{coupon.min_price}}可用</view>
+						</view>
+					</view>
+					<view class="flex-grow-0">
+						<view bindtap="receive" class="flex-x-center flex-y-center info-btn" data-index="{{coupon.id}}" style="color:#ff4544;" s-if="{{coupon.is_receive==0}}">立即领取</view>
+						<view class="flex-x-center flex-y-center info-btn" style="color:#999;" s-if="{{coupon.is_receive==1}}">已领取</view>
+					</view>
+				</view>
+				<view class="info-footer">
+					<view class="info-day" s-if="{{coupon.expire_type==2}}">有效日期：{{coupon.begintime}}-{{coupon.endtime}}</view>
+					<view class="info-day" s-if="{{coupon.expire_type==1}}">有效日期：领取{{coupon.expire_day}}天内有效</view>
+					<view>
+						<view bindtap="goodsList" data-goods="{{coupon.goods}}" s-if="{{coupon.appoint_type==2&&coupon.goods.length>0}}">指定商品使用 点进去查看指定商品</view>
+						<view s-else>{{coupon.content}}</view>
+					</view>
+				</view>
+
+			</block>
+		</view>
+
+
+	</view>
+
+	<view class="flex-x-center" s-if="{{coupon_list.length<=0}}">
+		<text style="margin-top:50rpx;">暂无优惠券</text>
+	</view>
+</view>
+<include src="/commons/get-coupon/get-coupon.swan"></include>

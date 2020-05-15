@@ -1,0 +1,18 @@
+@import "../../wxParse/wxParse.css";
+
+page {
+    min-height: 100%;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+.details {
+    box-sizing: border-box;
+    padding: 10rpx 0 24rpx 10rpx;
+    background: #fff;
+}
+
+.details text,.details image,.details view {
+    box-sizing: border-box;
+    max-width: 100%;
+}

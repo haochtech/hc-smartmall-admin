@@ -1,0 +1,11 @@
+<!-- <import src="../../wxParse/wxParse.swan"></import> -->
+<view class="page {{__page_classes}}">
+    <include src="/commons/header/header.swan"></include>
+    <view class="body after-navber">
+        <view class="details">
+            <!-- <template is="wxParse" data="{{wxParseData:content.nodes}}"></template> -->
+            <rich-text nodes="{{myrich}}"></rich-text>
+        </view>
+    </view>
+    <include src="/commons/footer/footer.swan"></include>
+</view>

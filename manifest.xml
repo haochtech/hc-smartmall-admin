@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.zx-app.com" versionCode="0.8,1.0">
+	<application setting="false">
+		<name><![CDATA[智能小程序商城版]]></name>
+		<identifie><![CDATA[zxshop_mall]]></identifie>
+		<version><![CDATA[2.7.6]]></version>
+		<type><![CDATA[enterprise]]></type>
+		<ability><![CDATA[智能小程序商城版]]></ability>
+		<description><![CDATA[智能小程序商城版]]></description>
+		<author><![CDATA[zxgc]]></author>
+		<url><![CDATA[https://www.zx-app.com/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports><item type="wxapp" /></supports>
+		
+	</platform>
+	<bindings>
+		<page>
+			<entry title="主页" do="/pages/index/index" state="" direct="false" />
+		</page>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

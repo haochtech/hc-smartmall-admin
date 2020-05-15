@@ -1,0 +1,46 @@
+<view class="navbar flex-row {{__device}}" style="background-image: url({{_navbar.background_image}})" s-if="{{_navbar&&_navbar.navs&&_navbar.navs.length>0}}">
+    <block s-for="{{_navbar.navs}}" s-key="{{item.id}}">
+      
+        <navigator appId="{{item.params.appid}}" class="flex-grow-1 flex-y-center flex-x-center" data-open_type="{{item.open_type}}" openType="navigate" path="{{item.params.path}}" target="miniProgram" url="{{item.url}}" s-if="{{item.open_type=='wxapp'}}">
+            <view>
+                <image class="navbar-icon" src="{{item.active?item.active_icon:item.icon}}"></image>
+                <view class="navbar-text" style="color: {{item.active?item.active_color:item.color}};">{{item.text}}
+          </view>
+            </view>
+        </navigator>
+
+
+        <navigator bindtap="naveClick" class="flex-grow-1 flex-y-center flex-x-center" data-open_type="{{item.open_type}}" data-tel="{{item.params.tel}}" openType="tel" url="{{item.url}}" s-elif="{{item.open_type=='tel'}}">
+            <view>
+                <image class="navbar-icon" src="{{item.active?item.active_icon:item.icon}}"></image>
+                <view class="navbar-text" style="color: {{item.active?item.active_color:item.color}};">{{item.text}}
+          </view>
+            </view>
+        </navigator>
+
+
+        <view class="flex-grow-1 flex-y-center flex-x-center" style="width:1%;padding-top:8rpx;" s-elif="{{item.open_type=='contact'}}">
+            <view style="width:100%;">
+                <button openType="contact" sessionFrom="{{_user_info.nickname}}|">
+                    <image class="navbar-icon" src="{{item.active?item.active_icon:item.icon}}"></image>
+                    <view class="navbar-text" style="color: {{item.active?item.active_color:item.color}};">{{item.text}}
+              </view>
+                </button>
+            </view>
+        </view>
+        <navigator class="flex-grow-1 flex-y-center flex-x-center" openType="navigate" url="/pages/web/web?url={{item.params.web}}" s-elif="{{item.open_type=='web'}}">
+            <view>
+                <image class="navbar-icon" src="{{item.active?item.active_icon:item.icon}}"></image>
+                <view class="navbar-text" style="color: {{item.active?item.active_color:item.color}};">{{item.text}}
+          </view>
+            </view>
+        </navigator>
+        <navigator class="flex-grow-1 flex-y-center flex-x-center" data-open_type="{{item.open_type}}" openType="redirect" url="{{item.new_url}}" s-else>
+            <view>
+                <image class="navbar-icon" src="{{item.active?item.active_icon:item.icon}}"></image>
+                <view class="navbar-text" style="color: {{item.active?item.active_color:item.color}};">{{item.text}}
+          </view>
+            </view>
+        </navigator>
+    </block>
+</view>

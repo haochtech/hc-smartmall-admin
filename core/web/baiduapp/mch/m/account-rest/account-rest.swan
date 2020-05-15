@@ -1,0 +1,5 @@
+<include src="/commons/extension/extension.swan"></include>
+<include src="/commons/navbar/navbar.swan"></include>
+<view class="after-navber">
+    <text>示例页面</text>
+</view>
